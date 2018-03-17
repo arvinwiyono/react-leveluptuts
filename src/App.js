@@ -4,9 +4,20 @@ import './App.css';
 import Welcome from './Welcome';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    console.log('Constructor');
+  }
 
   state = {
     toggle: true
+  }
+
+  // Not used very often
+  // Setting state here will NOT trigger the re-rendering
+  // As it is called before render()
+  componentWillMount(){
+    console.log('WillMount');
   }
 
   handleToggle = () => {
@@ -16,6 +27,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('Render');
     return (<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo"/>
@@ -30,6 +42,10 @@ class App extends Component {
       {this.state.toggle && <p>This should show and hide</p>}
       <button onClick={this.handleToggle}>Show / Hide</button>
     </div>);
+  }
+
+  componentDidMount(){
+    console.log('DidMount')
   }
 }
 
