@@ -1,47 +1,33 @@
 import React, {Component} from 'react';
 import Movie from './Movie/Movie';
 import logo from './logo.svg';
+import api_keys from './apikeys.json'
 import './App.css';
 
-const movies = [
-  {
-    id: 1,
-    title: 'Avengers: Infinity Wars',
-    year: 2018,
-    desc: {
-      short: 'Short description',
-      long: 'Long description'
-    }
-  }, {
-    id: 2,
-    title: 'Pacific Rim Uprising',
-    year: 2018,
-    desc: {
-      short: 'Short description',
-      long: 'Long description'
-    }
-  }, {
-    id: 3,
-    title: 'Star Wars: The Last Jedi',
-    year: 2017,
-    desc: {
-      short: 'Short description',
-      long: 'Long description'
-    }
-  }, {
-    id: 4,
-    title: 'Thor: Ragnarok',
-    year: 2017
-  }
-]
-
 class App extends Component {
+  state = {
+    movies: []
+  }
+
+  async componentDidMount(){
+    const discover_url = `https://api.themoviedb.org/3/discover/movie?api_key=${api_keys.tmdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=2018`
+    try {
+      const res = await fetch(discover_url);
+      const movies = await res.json();
+      this.setState({
+        movies: movies.results
+      })
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   render() {
     return (<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo"/>
       </header>
-      {movies.map(movie => <Movie key={movie.id} movie={movie} desc={movie.desc}/>)}
+      {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} overview={movie.overview}/>)}
     </div>);
   }
 }

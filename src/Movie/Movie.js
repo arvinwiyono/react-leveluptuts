@@ -4,23 +4,23 @@ import './Movie.css';
 
 export default class Movie extends Component {
   static defaultProps = {
-    desc: {
-      short: 'Short description not available',
-      long: 'Long description not available'
-    }
+    overview: 'Overview not available'
   }
 
   render() {
-    const {movie} = this.props;
+    const {movie, overview} = this.props;
     return (<div>
       <h3>{movie.title}</h3>
-      <p className="Movie-year">{movie.year}</p>
-      <p className="Movie-shortDescription">{this.props.desc.short}</p>
+      <p className="Movie-releaseDate">{movie.release_date}</p>
+      <p className="Movie-overview">{overview}</p>
     </div>)
   }
 }
 // Can be written this way instead of as a static method
 Movie.propTypes = {
-  movie: PropTypes.shape({title: PropTypes.string.isRequired, year: PropTypes.number.isRequired}),
-  desc: PropTypes.shape({short: PropTypes.string, long: PropTypes.string})
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+  }),
+  overview: PropTypes.string
 }
