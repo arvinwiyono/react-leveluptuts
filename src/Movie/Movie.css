@@ -1,3 +1,11 @@
-.Movie-releaseDate{
+.Movie a {
+  text-decoration: none;
+}
+
+.Movie-title {
+  color: black;
+}
+
+.Movie-releaseDate {
   color: grey;
 }
