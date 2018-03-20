@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Movie.css';
 
+const POSTER_PATH = 'http://image.tmdb.org/t/p/w200';
+
 export default function Movie({ movie, overview }) {
   return (
     <div>
+      <img src={ `${POSTER_PATH}/${movie.poster_path}` }></img>
       <h3>{movie.title}</h3>
       <p className="Movie-releaseDate">{movie.release_date}</p>
       <p className="Movie-overview">{overview}</p>
