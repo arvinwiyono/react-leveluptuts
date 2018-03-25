@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Overdrive from 'react-overdrive';
 import styled from 'styled-components';
 import apiKeys from './../apikeys.json';
 import MovieImage from './../MovieImage';
@@ -30,7 +31,9 @@ export default class MovieDetail extends Component {
     return (
       <MovieWrapper backdrop={BACKDROP_PATH + movie.backdrop_path}>
         <MovieInfo>
-          <MovieImage title={movie.title} path={movie.poster_path} />
+          <Overdrive id={movie.id}>
+            <MovieImage title={movie.title} path={movie.poster_path} />
+          </Overdrive>
           <div>
             <h1>{movie.title}</h1>
             <h3>{movie.release_date}</h3>
