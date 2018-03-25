@@ -4,9 +4,9 @@
 
 .App-header {
   background-color: #222;
-  height: 60px;
-  padding: 20px;
+  padding: 35px;
   color: white;
+  box-sizing: border-box;
 }
 
 .form {

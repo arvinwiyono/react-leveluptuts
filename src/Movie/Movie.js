@@ -10,7 +10,7 @@ export default function Movie({ movie }) {
       <Link to={`/${movie.id}`}>
         <h3 className="Movie-title">{movie.title}</h3>
         <MovieImage title={movie.title} path={movie.poster_path} />
-        <p className="Movie-releaseDate">{movie.release_date.split('-')[0]}</p>
+        <h3 className="Movie-releaseDate">{movie.release_date.split('-')[0]}</h3>
       </Link>
     </div>
   );

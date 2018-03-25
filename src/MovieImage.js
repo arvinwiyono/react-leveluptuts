@@ -9,7 +9,7 @@ function MovieImage(props) {
   const { title, path, backdrop } = props;
   const imagePath = backdrop ? `${BACKDROP_PATH}${path}` : `${POSTER_PATH}${path}`;
   return (
-    <img src={imagePath} alt={`${title} Poster`} />
+    <img src={imagePath} alt={`${title} Poster`} class={ backdrop ? 'Movie-backdrop' : 'Movie-poster' }/>
   );
 }
 
