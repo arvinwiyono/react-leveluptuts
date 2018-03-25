@@ -13,7 +13,7 @@ export default function Movie({ movie }) {
     <div className="Movie">
       <Link to={`/${movie.id}`}>
         <h3 className="Movie-title">{movie.title}</h3>
-        <Overdrive id={movie.id}>
+        <Overdrive id={movie.id} duration={800}>
           <img src={POSTER_PATH + movie.poster_path}/>
         </Overdrive>
         <h3 className="Movie-releaseDate">{movie.release_date.split('-')[0]}</h3>

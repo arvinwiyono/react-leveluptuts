@@ -31,7 +31,7 @@ export default class MovieDetail extends Component {
     return (
       <MovieWrapper backdrop={BACKDROP_PATH + movie.backdrop_path}>
         <MovieInfo>
-          <Overdrive id={movie.id}>
+          <Overdrive id={movie.id} duration={800}>
             <MovieImage title={movie.title} path={movie.poster_path} />
           </Overdrive>
           <div>
